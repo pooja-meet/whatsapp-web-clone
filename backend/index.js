@@ -13,7 +13,7 @@ const User = require('./Model/user');
 
 // Middlewares
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: [process.env.CLIENT_URL||"https://livechat13.netlify.app"],
   methods: ["GET", "PUT", "POST", "DELETE"]
 }));
 app.use(express.json());
