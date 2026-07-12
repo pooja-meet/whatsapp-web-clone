@@ -4,7 +4,7 @@ import Chat from './component/Chat/Chat'
 import Login from './component/auth/Auth'
 import Register from './component/auth/Auth'
 import Protected from './component/protected/Protected'
-import './app.css'
+import './App.css'
 export default function App() {
   const router = createBrowserRouter([
     {
