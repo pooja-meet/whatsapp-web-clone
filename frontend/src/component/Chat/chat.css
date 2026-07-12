@@ -1,0 +1,2109 @@
+/* ========================================================
+   GLOBAL LAYOUT SCREEN APP MASTER WRAPPER
+   ======================================================== */
+
+.chat_page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f2f5;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ========================================================
+   CHAT WINDOW MAIN RIGHT VIEWPORTS
+   ======================================================== */
+
+.chat_window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #efeae2;
+    /* Classic WhatsApp Chat wallpaper baseline tint */
+    position: relative;
+}
+
+/* ========================================================
+   EMPTY STATE VIEWPORT DASHBOARD DESKTOPS
+   ======================================================== */
+
+.no_chat_selected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    /* border-bottom: 6px solid #43c966; */
+    /* Accent WhatsApp Green bottom strip baseline */
+}
+
+.no_chat_icon_wrapper {
+    font-size: 54px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.no_chat_selected h3 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 300;
+    color: #41525d;
+}
+
+.no_chat_selected p {
+    margin: 0;
+    font-size: 14px;
+    color: #667781;
+    max-width: 450px;
+    line-height: 20px;
+}
+
+/* ========================================================
+   SLIDEOUT SIDEBAR CONTEXT OVERLAY PANELS (PROFILE & SETTINGS)
+   ======================================================== */
+
+.profile_sidebar_panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;
+    /* Aligns perfectly onto structural Sidebar width specs */
+    height: 100%;
+    background-color: #f0f2f5;
+    border-right: 1px solid #e9edef;
+    box-sizing: border-box;
+}
+
+.profile_header_title {
+    background-color: #008069;
+    /* Custom premium rich Teal green */
+    color: #ffffff;
+    height: 65px;
+    padding: 13px 20px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 18px;
+    box-sizing: border-box;
+}
+
+.profile_header_title h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+/* ========================================================
+   PROFILE COMPONENT FUNCTIONALITIES
+   ======================================================== */
+
+.profile_avatar_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 0;
+    background-color: #ffffff;
+}
+
+.avatar_hover_trigger {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile_large_avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Photo Changing Interactive Overlay Hover Masks */
+.avatar_overlay_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(84, 101, 111, 0.75);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease;
+}
+
+.avatar_hover_trigger:hover .avatar_overlay_mask {
+    opacity: 1;
+}
+
+/* Profile Form Structuring Data Cards */
+.profile_info_section {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.profile_info_card {
+    background-color: #ffffff;
+    padding: 14px 30px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.profile_info_card label {
+    font-size: 13px;
+    color: #008069;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.profile_field_value h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #111b21;
+}
+
+.profile_field_value p {
+    margin: 0;
+    font-size: 15px;
+    color: #54656f;
+    line-height: 20px;
+}
+
+/* Form Input Adjustments inside Profile Sidebars */
+.profile_edit_input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #00a884;
+    padding: 4px 0;
+    font-size: 16px;
+    color: #111b21;
+    outline: none;
+    background: transparent;
+}
+
+.disabled_text_view {
+    color: #8696a0 !important;
+    user-select: text;
+}
+
+/* Structural Action Block triggers */
+.profile_action_box {
+    padding: 24px 30px;
+}
+
+.update_profile_btn {
+    width: 100%;
+    background-color: #00a884;
+    color: #ffffff;
+    border: none;
+    padding: 11px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.15s ease;
+}
+
+.update_profile_btn:hover:not(:disabled) {
+    background-color: #008f70;
+}
+
+.edit_mode_actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cancel_profile_btn {
+    width: 100%;
+    background: none;
+    border: 1px solid #ccced1;
+    color: #54656f;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.cancel_profile_btn:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.update_profile_btn:disabled,
+.cancel_profile_btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ========================================================
+   SETTINGS COMPONENT FUNCTIONALITIES
+   ======================================================== */
+
+.settings_sidebar_panel {
+    background-color: #ffffff !important;
+}
+
+.settings_content_wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.settings_content_wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(11, 20, 26, 0.15);
+    border-radius: 3px;
+}
+
+.blocked_users_list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.blocked_users_list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+}
+
+/* ========================================================
+   TRANSITION KEYFRAMES
+   ======================================================== */
+
+@keyframes slideInPanel {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ========================================================
+   RESPONSIVE LAYOUT THRESHOLDS
+   ======================================================== */
+
+@media (max-width: 768px) {
+
+    /* Auto collapses desktop dashboard splits when chat profiles are active on mobile sizes */
+    .chat_page:has(.chat_window .chat_input_form) .chat_sidebar,
+    .chat_page:has(.chat_window .chat_input_form) .profile_sidebar_panel,
+    .chat_page:has(.chat_window .chat_input_form) .side_nav_container {
+        display: none;
+    }
+}
+
+/* ========================================================
+   FULLSCREEN MODAL BACKDROP OVERLAY
+   ======================================================== */
+
+.contacts_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(11, 20, 26, 0.4);
+    /* Muted overlay shadow tint */
+    backdrop-filter: blur(2px);
+    /* Premium soft blur layer backdrop look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    /* Stacks globally over chat rooms, sidebars, and dropdowns */
+    animation: overlayFadeIn 0.2s ease-out;
+}
+
+/* ========================================================
+   MODAL DIALOG CONTAINER
+   ======================================================== */
+
+.contacts_container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    /* Comfortable width for desktop viewing windows */
+    height: 80vh;
+    /* Limits profile viewing height boundary lines */
+    max-height: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(11, 20, 26, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalSlideUp 0.25s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* ========================================================
+   MODAL TOP HEADER BLOCK
+   ======================================================== */
+
+.contacts_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #008069;
+    /* Custom rich structural WhatsApp Teal Green */
+    color: #ffffff;
+    min-height: 64px;
+    box-sizing: border-box;
+}
+
+.contacts_header h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.close_btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close_btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ========================================================
+   SCROLLABLE INTERNAL CONTACT LISTS
+   ======================================================== */
+
+.contacts_list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+    background-color: #ffffff;
+}
+
+/* Customized Scrollbar styling handles inside modal rows */
+.contacts_list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contacts_list::-webkit-scrollbar-thumb {
+    background-color: rgba(11, 20, 26, 0.15);
+    border-radius: 3px;
+}
+
+/* ========================================================
+   INDIVIDUAL CONTACT ROW CARD 
+   ======================================================== */
+
+.contact_card {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 72px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    user-select: none;
+}
+
+.contact_card:hover {
+    background-color: #f5f6f6;
+}
+
+.contact_avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 16px;
+    flex-shrink: 0;
+    background-color: #f0f2f5;
+}
+
+/* Details Section Split */
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    min-width: 0;
+    /* Strict framework configuration to safeguard textual ellipsis */
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.contact_card:last-child .contact_info {
+    border-bottom: none;
+    /* Disables stray baseline borders on terminal element item */
+}
+
+.contact_info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111b21;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact_info p {
+    margin: 3px 0 0 0;
+    font-size: 13.5px;
+    color: #667781;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========================================================
+   ANIMATION KEYFRAMES
+   ======================================================== */
+
+@keyframes overlayFadeIn {
+    from {
+        background-color: rgba(11, 20, 26, 0);
+    }
+
+    to {
+        background-color: rgba(11, 20, 26, 0.4);
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================================
+   MAIN CHAT SIDEBAR CONTAINER
+   ======================================================== */
+
+.chat_sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;
+    /* Standard sidebar threshold width */
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid #e9edef;
+    box-sizing: border-box;
+}
+
+/* ========================================================
+   SIDEBAR HEADER SECTIONS
+   ======================================================== */
+
+.sidebar_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #ffffff;
+    min-height: 59px;
+    box-sizing: border-box;
+}
+
+.sidebar_header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111b21;
+}
+
+.header_actions_right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.menu-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.header_action_icon_btn {
+    background: none;
+    border: none;
+    color: #54656f;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header_action_icon_btn:hover {
+    background-color: #f0f2f5;
+    color: #111b21;
+}
+
+/* ========================================================
+   SCROLLABLE USER CHAT LIST CONTAINER
+   ======================================================== */
+
+.users_list {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+/* Custom Scrollbar */
+.users_list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.users_list::-webkit-scrollbar-thumb {
+    background-color: rgba(11, 20, 26, 0.15);
+    border-radius: 3px;
+}
+
+/* ========================================================
+   INDIVIDUAL USER CARD (ROW ITEM)
+   ======================================================== */
+
+.user_card {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 72px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    user-select: none;
+}
+
+.user_card:hover {
+    background-color: #f0f2f5;
+}
+
+/* Active Highlight state matching selection */
+.user_card.active_user {
+    background-color: #eaebeb;
+}
+
+/* ========================================================
+   AVATAR CONTAINER & STATUS BADGE PIN
+   ======================================================== */
+
+.user_avatar_container {
+    position: relative;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.user_avatar_img {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #f0f2f5;
+}
+
+/* Live Active Floating Indicator Status Badge */
+.status_badge_dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    /* Rings baseline mask isolation separator */
+}
+
+.status_badge_dot.online {
+    background-color: #1fa855;
+    /* WhatsApp Brand Online Green */
+}
+
+.status_badge_dot.offline {
+    background-color: #8696a0;
+    /* Slate Grey placeholder offline state */
+    display: none;
+    /* Optional: Hide completely if offline to match layouts */
+}
+
+/* ========================================================
+   USER DATA DESCRIPTION META SECTIONS
+   ======================================================== */
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    min-width: 0;
+    /* Important context block for child ellipsis text calculations */
+    border-bottom: 1px solid #f0f2f5;
+}
+
+/* Clean bottom border strip erasure on active row node elements */
+.user_card:last-child .user_info,
+.user_card.active_user .user_info {
+    border-bottom: transparent;
+}
+
+/* ROW LEVEL SPLITS */
+.user_top,
+.user_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.user_bottom {
+    margin-top: 3px;
+}
+
+/* Text Element Truncations */
+.user_top h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111b21;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding-right: 8px;
+}
+
+.sidebar_time {
+    font-size: 12px;
+    color: #667781;
+    white-space: nowrap;
+}
+
+.user_card.active_user .sidebar_time {
+    color: #54656f;
+}
+
+.sidebar_user_about {
+    margin: 0;
+    font-size: 13.5px;
+    color: #667781;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding-right: 12px;
+}
+
+/* Highlight text color if there are pending unread messages */
+.user_card:has(.unread_badge) .sidebar_user_about {
+    color: #111b21;
+    font-weight: 500;
+}
+
+/* ========================================================
+   UNREAD CHAT BADGES PUSH COUNTER
+   ======================================================== */
+
+.unread_badge {
+    background-color: #00a884;
+    /* WhatsApp brand notification emerald-green */
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 4px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* ========================================================
+   EMPTY STATE CONTAINER DISPLAY STYLING
+   ======================================================== */
+
+.no_users_found p {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111b21;
+}
+
+.no_users_found span {
+    font-size: 13px;
+    line-height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.no_users_found svg {
+    vertical-align: middle;
+    color: #00a884;
+}
+
+/* ========================================================
+   CONTEXT MENU CONTAINER TRIPPLE-DOT WRAPPER
+   ======================================================== */
+
+.menu-wrapper {
+    position: relative;
+    /* Essential for aligning absolute dropdown positioning */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Subtle icon hover frame container for the vertical dots */
+.menu-wrapper>svg {
+    color: #54656f;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-wrapper>svg:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #111b21;
+}
+
+/* ========================================================
+   DROPDOWN LAYER BOX LAYOUT
+   ======================================================== */
+
+.menu-dropdown {
+    position: absolute;
+    top: 36px;
+    /* Positions perfectly right below the 3-dots icon trigger */
+    right: 0;
+    /* Aligns along the right boundary border edge */
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 5px 0;
+    min-width: 140px;
+    z-index: 150;
+    /* Ensures it stacks cleanly above chat lists or sidebars */
+    overflow: hidden;
+    animation: menuFadeIn 0.12s ease-out;
+}
+
+/* ========================================================
+   DROPDOWN INTERACTIVE ITEM ROW BUTTONS
+   ======================================================== */
+
+.menu-dropdown button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 14.5px;
+    color: #111b21;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Perfect spacing between structural icons and text strings */
+    transition: background-color 0.15s ease;
+    font-weight: 400;
+}
+
+/* Flex aligned structural icon sizing inside lists */
+.menu-dropdown button svg {
+    font-size: 18px;
+    color: #54656f;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+}
+
+/* Hover Interactive Mechanics */
+.menu-dropdown button:hover {
+    background-color: #f5f6f6;
+}
+
+.menu-dropdown button:hover svg {
+    color: #111b21;
+}
+
+/* Highlight style variant specifically targeting the logout action block */
+.menu-dropdown button:last-child:hover {
+    background-color: #fff1f1;
+    /* Mild red warning tone background hint */
+}
+
+.menu-dropdown button:last-child:hover svg {
+    color: #ea0038;
+    /* Crisp sharp red logout accent highlight */
+}
+
+/* Active pressed click down frame simulation */
+.menu-dropdown button:active {
+    background-color: #eaebeb;
+}
+
+/* ========================================================
+   TRANSITION KEYFRAMES
+   ======================================================== */
+
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ========================================================
+   MESSAGE AREA CONTAINER
+   ======================================================== */
+/* ========================================================
+   WHATSAPP MESSAGE AREA & BUBBLES UI
+   ======================================================== */
+
+/* Main scrollable container */
+.messages_box {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    overflow-y: auto;
+    scroll-behavior: auto !important;
+    gap: 4px;
+    /* WhatsApp bubbles tightly grouped hote hain */
+    background-color: #efeae2;
+    /* Base color tint agar image na load ho */
+    flex: 1;
+}
+
+/* Individual full-width structural container */
+.message_row_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================================================
+   GLOBAL CENTERED DATE DIVIDERS (WHATSAPP WEB STYLE)
+   ======================================================== */
+
+.date-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14px 0 8px 0;
+    /* WhatsApp bubbles ke beech ka strict standard layout spacing */
+    width: 100%;
+    clear: both;
+    user-select: none;
+    /* User is text ko select na kar sake, standard native app behavior */
+}
+
+.date-divider span {
+    background-color: #ffffff;
+    /* Sticky white background pill */
+    color: #54656f;
+    /* WhatsApp Web custom dark grey-ish blue color for meta text */
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* 'TODAY', 'YESTERDAY' ko clean and bold look dene ke liye */
+    letter-spacing: 0.3px;
+    border-radius: 7.5px;
+    /* Clean rectangular round corners matching the message bubbles */
+    box-shadow: 0 1px 1px rgba(11, 20, 26, 0.08);
+    /* Minimal sub-pixel drop shadow tint */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Alignments based on message owner */
+.message_row {
+    display: flex;
+    width: 100%;
+    margin: 2px 0;
+}
+
+.message_row.my_msg {
+    justify-content: flex-end;
+}
+
+.message_row.other_msg {
+    justify-content: flex-start;
+}
+
+/* 🟢 CORE BUBBLE STRUCTURING */
+.message_content_bubble {
+    max-width: 65%;
+    padding: 6px 7px 8px 9px;
+    font-size: 14.2px;
+    border-radius: 7.5px;
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+/* My Message Color Palette (WhatsApp Soft Green) */
+.my_msg .message_content_bubble {
+    background-color: #d9fdd3;
+    border-top-right-radius: 0px;
+    /* Tail effect block setup */
+    color: #111b21;
+    margin-right: 2px;
+}
+
+/* Other Message Color Palette (Pure White) */
+.other_msg .message_content_bubble {
+    background-color: #ffffff;
+    border-top-left-radius: 0px;
+    color: #111b21;
+    margin-left: 2px;
+}
+
+/* Base adjustment for media containers inside bubbles */
+.message_content_bubble.media_bubble {
+    padding: 4px !important;
+}
+
+/* Text message formatting wrapper */
+.msg_text_only {
+    margin: 0;
+    line-height: 19px;
+    color: #111b21;
+    padding-right: 35px;
+    /* Spacing taaki timestamp se overlap na ho */
+}
+
+/* Dynamic caption style below media files */
+.chat_media_caption {
+    margin: 6px 4px 2px 4px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #111b21;
+    word-break: break-word;
+}
+
+/* ========================================================
+   TIMESTAMP & STATUS FLAGS CONFIGURATION
+   ======================================================== */
+.msg_time_stamp_bar {
+    align-self: flex-end;
+    font-size: 11px;
+    color: #667781;
+    margin-top: -4px;
+    /* Text flow ke sath bottom baseline push */
+    margin-left: auto;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* WhatsApp Message Status Ticks */
+.tick_blue {
+    color: #53bdeb;
+}
+
+.tick_grey {
+    color: #8696a0;
+}
+
+/* ========================================================
+   MEDIA HOVER ELEMENTS & CONTROLS
+   ======================================================== */
+
+/* Image container */
+.whatsapp_image_container {
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 330px;
+    position: relative;
+}
+
+.image_wrapper_hover {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.chat_whatsapp_img {
+    width: 100%;
+    max-height: 320px;
+    display: block;
+    object-fit: cover;
+    background-color: #dfe5e7;
+}
+
+/* Interactive Overlay on Image Hover */
+.media_action_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Subtle dim layer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.image_wrapper_hover:hover .media_action_overlay {
+    opacity: 1;
+}
+
+/* Media Interactive Rounded Action Buttons */
+.media_action_overlay button {
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    color: #111b21;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease;
+}
+
+.media_action_overlay button:hover {
+    transform: scale(1.1);
+}
+
+/* Video & Audio elements standard configurations */
+.whatsapp_video_container {
+    max-width: 330px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.chat_whatsapp_video {
+    width: 100%;
+    display: block;
+    background-color: #000;
+}
+
+.whatsapp_audio_container {
+    width: 300px;
+    padding: 4px;
+}
+
+.chat_whatsapp_audio {
+    width: 100%;
+    height: 40px;
+}
+
+/* Documents / PDF Cards layouts */
+.whatsapp_doc_container {
+    width: 300px;
+}
+
+.doc_file_card {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 10px;
+    border-radius: 6px;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.doc_file_card:hover {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.doc_icon_box {
+    font-size: 24px;
+    user-select: none;
+}
+
+.doc_meta_info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.doc_name_text {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #111b21;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.doc_sub_text {
+    font-size: 11.5px;
+    color: #667781;
+    margin-top: 1px;
+}
+
+.doc_dl_btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #667781;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s;
+}
+
+.doc_dl_btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #111b21;
+}
+
+/* ========================================================
+   LIGHTBOX MEDIA FULLSCREEN MODAL (PREVIEW)
+   ======================================================== */
+.whatsapp_lightbox_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(11, 20, 26, 0.95);
+    /* WhatsApp Cinematic Deep Backdrop Dark Blur */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    /* Stacks globally over overlays */
+    animation: fadeInLightbox 0.2s ease-out;
+}
+
+.lightbox_content_box {
+    position: relative;
+    max-width: 85%;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.lightbox_full_image {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+/* Utility layout control action tools inside Lightbox overlay */
+.lightbox_close_btn {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #eaebeb;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.lightbox_close_btn:hover {
+    color: #ffffff;
+}
+
+.lightbox_download_btn {
+    background-color: #00a884;
+    /* Crisp emerald premium CTA button layout */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.15s ease;
+}
+
+.lightbox_download_btn:hover {
+    background-color: #008f70;
+}
+
+/* Animation keyframe */
+@keyframes fadeInLightbox {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========================================================
+   VERTICAL SIDEBAR NAVIGATION CONTAINER
+   ======================================================== */
+/* 🟢 WHATSAPP SIDEBAR NAV CONTAINER */
+.sidebar_nav {
+    width: 60px;
+    height: 100vh;
+    background-color: #f0f2f5;
+    /* WhatsApp Web sidebar grey background */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-right: 1px solid #e9edef;
+    box-sizing: border-box;
+}
+
+/* 1. TOP MENU SECTION */
+.sidebar_nav_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    /* Icons ke beech ka perfect gap */
+    width: 100%;
+}
+
+/* 2. BOTTOM MENU SECTION */
+.sidebar_nav_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* 🎯 ICON BUTTONS BASE STYLE */
+.nav_icon_btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #54656f;
+    /* WhatsApp signature icon grey color */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Hover Effect */
+.nav_icon_btn:hover {
+    background-color: #eaebeb;
+    color: #111b21;
+}
+
+/* 🌟 ACTIVE STATE STYLE (WhatsApp Web Style Bubble) */
+.nav_icon_btn.active {
+    background-color: #d9fdd3 !important;
+    /* Soft active green background */
+    color: #008069 !important;
+    /* Sharp teal accent for active state */
+}
+
+/* Status Icon specific rotation tweak if needed */
+.status_icon {
+    transition: transform 0.3s ease;
+}
+
+.nav_icon_btn:hover .status_icon {
+    transform: rotate(45deg);
+    /* Professional tiny animation on status check */
+}
+
+/* 👤 PROFILE AVATAR CONTAINER */
+.sidebar_profile_wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+/* Hover on Avatar */
+.sidebar_profile_wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Profile Active State border highlight */
+.sidebar_profile_wrapper.active {
+    border-color: #008069;
+    /* Highlights avatar when profile panel is open */
+    box-shadow: 0 0 0 2px rgba(0, 128, 105, 0.2);
+}
+
+.sidebar_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #dfe5e7;
+}
+
+/* ========================================================
+   BOTTOM MAIN CHAT INPUT BAR BAR FORM
+   ======================================================== */
+
+.chat_input_form {
+    display: flex;
+    align-items: center;
+    background-color: #f0f2f5;
+    /* Light WhatsApp desktop input background */
+    padding: 10px 16px;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #e9edef;
+    position: relative;
+    min-height: 60px;
+}
+
+/* Disabled styling wrapper for input freeze */
+.chat_input_form.chat_input_disabled {
+    background-color: #f0f2f5;
+    cursor: not-allowed;
+}
+
+/* ========================================================
+   DYNAMIC INPUT FIELD CONTENT
+   ======================================================== */
+
+.chat_input_form input[type="text"] {
+    flex: 1;
+    background-color: #ffffff;
+    border: none;
+    outline: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #111b21;
+    box-sizing: border-box;
+    line-height: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.chat_input_form input[type="text"]::placeholder {
+    color: #667781;
+}
+
+/* Input layout adjustments when disabled or frozen */
+.chat_input_form input[type="text"].disabled_input_field {
+    background-color: #e9edef;
+    color: #8696a0;
+    text-align: center;
+    /* Centers block warning texts mimicking WhatsApp */
+    font-weight: 500;
+    font-size: 14px;
+    cursor: not-allowed;
+    user-select: none;
+}
+
+/* ========================================================
+   ATTACHMENT CONTAINER BUTTONS & DROPDOWN MENU
+   ======================================================== */
+
+.attachment_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.attach_btn {
+    background: none;
+    border: none;
+    color: #54656f;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.attach_btn:hover:not(:disabled),
+.attach_btn.active_attach {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: #111b21;
+}
+
+.attach_btn.active_attach {
+    transform: rotate(45deg);
+    /* Playful rotate accent on open */
+}
+
+.attach_btn:disabled {
+    color: #a6b2b9;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Floating Paperclip Context Window Popup */
+.attachment_dropdown {
+    position: absolute;
+    bottom: 52px;
+    /* Renders comfortably stacked above input layout rows */
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 16px rgba(11, 20, 26, 0.12), 0 4px 16px rgba(11, 20, 26, 0.12);
+    border-radius: 12px;
+    padding: 6px 0;
+    min-width: 190px;
+    z-index: 200;
+    animation: slideUpDropdown 0.15s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.attachment_dropdown .dropdown_item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+    font-size: 14.5px;
+    color: #111b21;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.attachment_dropdown .dropdown_item:hover {
+    background-color: #f5f6f6;
+}
+
+.attachment_dropdown .dropdown_item svg {
+    color: #00a884;
+    /* WhatsApp brand accent color assigned to utility menus */
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+/* ========================================================
+   UPLOAD PREVIEW ROW OVERLAY FRAME
+   ======================================================== */
+
+.whatsapp_media_preview_overlay {
+    position: absolute;
+    bottom: 60px;
+    /* Positions preview bar directly above text inputs */
+    left: 0;
+    width: 100%;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e9edef;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    z-index: 100;
+    animation: previewSlideIn 0.2s ease-out;
+}
+
+.document_preview_box {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    gap: 14px;
+    width: fit-content;
+    max-width: 85%;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.document_preview_box img,
+.document_preview_box video {
+    border-radius: 4px;
+    background-color: #eaebeb;
+}
+
+.document_preview_box svg {
+    color: #54656f;
+    flex-shrink: 0;
+}
+
+.file_name_text {
+    font-size: 14px;
+    color: #111b21;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+}
+
+.close_preview_btn {
+    background-color: #8696a0;
+    border: none;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.15s ease;
+}
+
+.close_preview_btn:hover {
+    background-color: #667781;
+}
+
+/* ========================================================
+   SUBMIT MESSAGE BUTTON KEYFRAME CONTROLS
+   ======================================================== */
+
+.send_msg_btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #00a884;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.send_msg_btn:active:not(:disabled) {
+    transform: scale(0.9);
+}
+
+.send_msg_btn:disabled {
+    color: #8696a0;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ========================================================
+   ANIMATION INTERACTIVE TRANSFORMATIONS
+   ======================================================== */
+
+@keyframes slideUpDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes previewSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================================
+   CHAT HEADER CONTAINER WRAPPER
+   ======================================================== */
+
+.chat_header {
+    height: 60px;
+    background-color: #f0f2f5;
+    /* WhatsApp header baseline background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e9edef;
+    position: relative;
+    width: 100%;
+    z-index: 15;
+    /* Keeps headers locked neatly above message layouts */
+    user-select: none;
+}
+
+/* ========================================================
+   LEFT SECTION: AVATAR AND USER ACCOUNT DETAILS
+   ======================================================== */
+
+.chat_header_left_info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Elements ke beech ka gap */
+}
+
+.chat_header_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #eaebeb;
+}
+
+.chat_header_left_info div {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.chat_header_left_info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111b21;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user_header_status {
+    font-size: 13px;
+    color: #667781;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+}
+
+/* 🔥 Left Arrow Button Styling */
+.chat_header_back_btn {
+    background: transparent;
+    border: none;
+    color: #54656f;
+    /* WhatsApp standard icon color */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.15s ease;
+    margin-right: 2px;
+    /* Avatar se spacing */
+}
+
+/* Hover effect jisse premium circular background mile */
+.chat_header_back_btn:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+    color: #111b21;
+}
+
+/* ========================================================
+   RIGHT SECTION: CALL HANDLERS & OPTIONS CONTEXT TRIGGERS
+   ======================================================== */
+
+.chat_header_right_actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    /* Context parent anchor zone for dropdown placements */
+}
+
+.header_action_btn {
+    background: none;
+    border: none;
+    color: #54656f;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.header_action_btn:hover:not(:disabled),
+.header_action_btn.active_menu_btn {
+    background-color: rgba(11, 20, 26, 0.08);
+    color: #111b21;
+}
+
+.header_action_btn:disabled {
+    color: #a6b2b9;
+    cursor: not-allowed;
+}
+
+/* ========================================================
+   THREE-DOT OPTIONS DROPDOWN MENU OVERLAY 
+   ======================================================== */
+
+.header_dropdown_popup {
+    position: absolute;
+    top: 45px;
+    right: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(11, 20, 26, 0.15);
+    border-radius: 8px;
+    padding: 6px 0;
+    min-width: 160px;
+    z-index: 210;
+    animation: dropdownFadeIn 0.12s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.header_dropdown_popup button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 10px 24px;
+    font-size: 14.5px;
+    color: #111b21;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s ease;
+}
+
+.header_dropdown_popup button:hover {
+    background-color: #f5f6f6;
+}
+
+/* Red-accent theme styling dedicated to irreversible chat modifications */
+.header_dropdown_popup button.clear_chat_btn {
+    color: #ea0038;
+}
+
+.header_dropdown_popup button.clear_chat_btn:hover {
+    background-color: #fff1f3;
+}
+
+/* ========================================================
+   TRANSITION ACCENTS & KEYFRAMES
+   ======================================================== */
+
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Main View Container for Side Panels (Status / Calls) */
+.whatsapp_side_panel_view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    /* Left side panel background */
+    border-right: 1px solid #e9edef;
+}
+
+/* Header Section Style */
+.panel_header_section {
+    padding: 20px 24px 12px 24px;
+    background-color: #ffffff;
+}
+
+.panel_header_section h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111b21;
+    margin: 0;
+}
+
+/* Centered Placeholder Content Design */
+.panel_content_placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Placeholder Icon/Emoji adjustments */
+.placeholder_icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    opacity: 0.7;
+}
+
+/* Primary text inside panel block */
+.panel_content_placeholder h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #111b21;
+    margin: 0 0 8px 0;
+}
+
+/* Secondary description text */
+.panel_content_placeholder p {
+    font-size: 14px;
+    color: #667781;
+    margin: 0;
+    max-width: 250px;
+    line-height: 20px;
+}
+
+/* ========================================================
+   📱 TABLET LAYOUT BREAKPOINT (768px and down)
+   ======================================================== */
+@media (max-width: 768px) {
+
+    /* 1. Master Shell Grid Override */
+    .chat_page {
+        position: relative;
+    }
+
+    /* 2. Hide dashboard panels systematically when a private user session opens */
+    .chat_page:has(.chat_window .chat_input_form) .chat_sidebar,
+    .chat_page:has(.chat_window .chat_input_form) .profile_sidebar_panel,
+    .chat_page:has(.chat_window .chat_input_form) .side_nav_container {
+        display: none !important;
+    }
+
+    .chat_window {
+        width: 100vw;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    /* 3. Message Area Bubble Constraints Adaptations */
+    .messages_box {
+        padding: 16px 14px;
+    }
+
+    .message_content {
+        max-width: 82%;
+        /* Grants wider bubbles on mid-sized mobile tiers */
+    }
+
+    .chat_inline_image,
+    .chat_inline_video {
+        width: 240px;
+        max-height: 260px;
+    }
+
+    /* 4. Compressed Horizontal Input Controls */
+    .chat_input_form {
+        padding: 8px 10px;
+        gap: 8px;
+        min-height: 52px;
+    }
+
+    .chat_header_back_btn {
+        display: block;
+        /* Desktop par hide karne ke liye */
+    }
+
+    .chat_input_form input[type="text"] {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .chat_input_form input[type="text"].disabled_input_field {
+        font-size: 12.5px;
+        padding: 8px 6px;
+    }
+}
+
+
+
+/* ========================================================
+   📱 COMPACT MOBILE LAYOUT BREAKPOINT (375px and down)
+   ======================================================== */
+@media (min-width: 375px) {
+    .no_chat_selected {
+        display: none;
+    }
+
+    /* 1. Header Toolbar Scaling Optimization */
+    .chat_header {
+        height: 54px;
+        padding: 0px;
+    }
+
+    .chat_header_img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .chat_header_left_info {
+        gap: 8px;
+    }
+
+    .chat_header_left_info h4 {
+        font-size: 14.5px;
+    }
+
+    .user_header_status {
+        font-size: 11px;
+    }
+
+    .header_action_btn {
+        padding: 6px;
+    }
+
+
+    .profile_header_title h2 {
+        font-size: 15px;
+    }
+
+    /* 2. Text / Media Message Sizing Realignment */
+    .messages_box {
+        padding: 8px 8px;
+    }
+
+    .message_content {
+        max-width: 90%;
+        /* Expands utility width space metrics over compact grids */
+        padding: 5px 6px 7px 8px;
+    }
+
+    .message_content p {
+        font-size: 13.8px;
+        line-height: 17px;
+        padding-right: 32px;
+        /* Pulls padding down to account for cramped footprints */
+    }
+
+    .chat_header_right_actions {
+        gap: 2px;
+        /* Context parent anchor zone for dropdown placements */
+    }
+
+
+    .chat_inline_image,
+    .chat_inline_video {
+        width: 190px;
+        max-height: 210px;
+    }
+
+    .chat_inline_audio {
+        width: 185px;
+    }
+
+    /* 3. Input & Overlay Controls Restructuring */
+    .chat_input_form {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+
+    /* Text Element Truncations */
+    .user_top h4 {
+        font-size: 14px;
+    }
+
+
+    .sidebar_user_about {
+        font-size: 12.5px;
+    }
+
+    .date-divider span {
+        font-size: 10px;
+    }
+
+    .whatsapp_media_preview_overlay {
+        padding: 8px 12px;
+        bottom: 52px;
+    }
+
+    .document_preview_box {
+        max-width: 95%;
+        padding: 8px 10px;
+        gap: 8px
+    }
+
+    .file_name_text {
+        font-size: 12px;
+        max-width: 130px;
+    }
+
+    .header_dropdown_popup {
+        min-width: 140px;
+        right: 2px;
+    }
+
+    .header_dropdown_popup button {
+        padding: 8px 16px;
+        font-size: 13.5px;
+    }
+
+
+    .contacts_container {
+        height: 100vh;
+        border-radius: 0px;
+        flex-direction: column;
+    }
+}
