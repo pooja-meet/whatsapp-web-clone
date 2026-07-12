@@ -12,7 +12,7 @@ import { LuLogOut, LuArrowLeft, LuUserX, LuShieldAlert } from 'react-icons/lu';
 import { BiCamera } from "react-icons/bi";
 import './chat.css';
 
-const api_url = import.meta.env.VITE_API_URL||"https://whatsapp-web-clone-1-qz46.onrender.com";
+const api_url = import.meta.env.VITE_API_URL;
 const socket = io(`${api_url}`, { autoConnect: true });
 
 export default function Chat() {
