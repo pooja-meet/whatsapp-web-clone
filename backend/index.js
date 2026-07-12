@@ -12,9 +12,15 @@ const chat = require('./Routes/messageRoutes');
 const User = require('./Model/user');
 
 // Middlewares
+const allowedOrigins = [
+  "http://localhost:5173",          // Local development ke liye
+  "https://livechat13.netlify.app"   // Aapki live Netlify site
+];
+// 1. Express CORS Setup
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  methods: ["GET", "PUT", "POST", "DELETE"]
+  origin: allowedOrigins,
+  methods: ["GET", "PUT", "POST", "DELETE"],
+  credentials: true
 }));
 app.use(express.json());
 
@@ -31,11 +37,12 @@ app.get('/', (req, res) => {
 // =========================================================================
 // SOCKET.IO CONFIGURATION
 // =========================================================================
-const io = new Server(server, {
-  pingTimeout: 60000,
+const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.CLIENT_URL
-  },
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true
+  }
 });
 
 const activeUsers = {}; // Memory Storage: { userId: socketId }
