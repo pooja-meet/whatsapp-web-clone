@@ -2053,7 +2053,7 @@
         /* Vertical column se Horizontal row alignment */
         justify-content: space-between;
         align-items: center;
-        padding: 0 15px !important;
+        padding: 0 30px !important;
         background-color: #ffffff;
         /* WhatsApp jaisa clean white background */
         border-top: 1px solid #e9edef;
