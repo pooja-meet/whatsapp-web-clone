@@ -571,8 +571,8 @@ export default function Chat() {
   }
 
   return (
-    <div className="chat_page">
-      <SideNav currentUser={currentUser} activeTab={activeMenu} setActiveTab={setActiveMenu} />
+     <div className={`chat_page ${selectedUser ? 'chat-is-open' : ''}`}>
+       <SideNav currentUser={currentUser} activeTab={activeMenu} setActiveTab={setActiveMenu} />
 
       {activeMenu === 'chats' && (
         <>
