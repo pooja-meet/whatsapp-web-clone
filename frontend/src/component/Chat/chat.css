@@ -2219,9 +2219,6 @@
         font-size: 13.5px;
     }
 
-.users_list {
-        overflow-y: auto;
-    }
     .contacts_container {
         height: 100vh;
         border-radius: 0px;
