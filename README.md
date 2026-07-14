@@ -30,5 +30,3 @@ LiveChat13 is a production-ready, full-stack real-time communication platform bu
 | **Real-Time Engine**| Socket.io |
 | **File Storage** | Multer, Cloudinary API |
 | **Security** | JWT (JSON Web Tokens), Bcrypt |
-git clone [https://github.com/your-username/LiveChat13.git](https://github.com/your-username/LiveChat13.git)
-cd LiveChat13
