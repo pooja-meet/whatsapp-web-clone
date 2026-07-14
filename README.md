@@ -2,8 +2,27 @@
 
 LiveChat13 is a production-ready, full-stack real-time communication platform built using the MERN stack. It features instant messaging, comprehensive user privacy controls, secure authentication, and a dynamic media sharing system.
 
-## 🚀 Live Demo & Repository
-* **Live Demo:** [Click Here to View Live](https://livechat13.netlify.app/login)
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+* React
+* CSS
+
+**Backend:**
+
+* Node.js
+* Express.js
+
+**Database:**
+
+* MongoDB (Mongoose)
+
+**Other:**
+
+* Cloudinary (Image storage)
 
 ---
 
@@ -20,13 +39,55 @@ LiveChat13 is a production-ready, full-stack real-time communication platform bu
 
 ---
 
-## 🛠️ Tech Stack
+## 📸 Preview
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React.js, Custom CSS |
-| **Backend** | Node.js, Express.js |
-| **Database** | MongoDB Atlas, Mongoose ORM |
-| **Real-Time Engine**| Socket.io |
-| **File Storage** | Multer, Cloudinary API |
-| **Security** | JWT (JSON Web Tokens), Bcrypt |
+<img width="1913" height="918" alt="image" src="https://github.com/user-attachments/assets/5c0b63e3-5161-4dbe-bd5d-205c313c9c2c" />
+
+
+
+---
+
+## 🌐 Live Demo
+
+https://livechat13.netlify.app/login
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+https://github.com/pooja-meet/whatsapp-web-clone.git
+
+# Go to project folder
+cd whatsapp-clone
+
+# Install dependencies
+npm install
+
+# Run frontend
+npm run dev
+
+# Run backend
+npm start
+```
+
+---
+
+## 📂 Folder Structure
+
+```
+/frontend   → React frontend
+/backend   → Node + Express backend
+```
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and improve it.
+
+---
+
+## 📬 Contact
+
+If you want to connect or collaborate, feel free to reach out. pmrawat10@gmail.com
