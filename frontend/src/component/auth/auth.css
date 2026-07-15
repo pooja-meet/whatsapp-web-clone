@@ -245,7 +245,7 @@
 }
 
 /* 2. Mobile Screens (Max Width: 480px) */
-@media (max-width: 480px) {
+@media (max-width: 375px) {
   .whatsapp_top_bar {
     height: 120px; /* Top bar ko aur slim kiya */
   }
@@ -263,21 +263,10 @@
     padding: 20px 10px;
     background-color: transparent;
   }
+  .whatsapp_form_header {
+    margin-top: 70px
+   }
   .whatsapp_form_header h2 {
     font-size: 22px;
-  }
-}
-
-/* 3. Landscape modes aur extremely small screen devices */
-@media (max-height: 600px) {
-  .whatsapp_form_header {
-    margin-top: 70px;
-}
-  .whatsapp_top_bar {
-    display: none; /* Landscape orientation me green background ko block space se hata denge */
-  }
-  .whatsapp_auth_wrapper {
-    justify-content: flex-start;
-    padding: 15px;
   }
 }
