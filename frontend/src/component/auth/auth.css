@@ -270,6 +270,9 @@
 
 /* 3. Landscape modes aur extremely small screen devices */
 @media (max-height: 600px) {
+  .whatsapp_form_header {
+    margin-top: 70px;
+}
   .whatsapp_top_bar {
     display: none; /* Landscape orientation me green background ko block space se hata denge */
   }
