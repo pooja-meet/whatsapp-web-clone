@@ -1,3 +1,7 @@
+## 📸 Preview
+
+<img width="1900" height="900" alt="image" src="https://github.com/user-attachments/assets/5c0b63e3-5161-4dbe-bd5d-205c313c9c2c" />
+
 # 💬 LiveChat13 - Real-Time Chat Application
 
 LiveChat13 is a production-ready, full-stack real-time communication platform built using the MERN stack. It features instant messaging, comprehensive user privacy controls, secure authentication, and a dynamic media sharing system.
@@ -38,10 +42,6 @@ LiveChat13 is a production-ready, full-stack real-time communication platform bu
 * **Media Sharing:** Real-time multi-media uploads managed via **Multer** and securely stored/served through **Cloudinary**.
 
 ---
-
-## 📸 Preview
-
-<img width="1913" height="918" alt="image" src="https://github.com/user-attachments/assets/5c0b63e3-5161-4dbe-bd5d-205c313c9c2c" />
 
 
 
