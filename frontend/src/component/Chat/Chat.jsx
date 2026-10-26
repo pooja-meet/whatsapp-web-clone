@@ -565,11 +565,10 @@ export default function Chat() {
   const formatLastSeen = (isoString) => {
     if (!isoString) return "";
     const dateLabel = getDateLabel(isoString);
-    const timeLabel = formatTime(isoString);
     if (dateLabel === "Today" || dateLabel === "Yesterday") {
-      return `${dateLabel.toLowerCase()} at ${timeLabel}`;
+      return `${dateLabel.toLowerCase()} `;
     }
-    return `on ${dateLabel} at ${timeLabel}`;
+    return `on ${dateLabel}`;
   };
 
   const formatChatTime = (isoString) => {
