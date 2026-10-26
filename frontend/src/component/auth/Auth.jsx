@@ -54,19 +54,20 @@ export default function Auth() {
         try {
             const res = await fetch(url, {
                 method: "POST",
-                headers: headers,
+                headers,
                 body: bodyData,
                 credentials: "include"
             });
 
             const data = await res.json();
+
             console.log("Login status:", res.status);
             console.log("Login response:", data);
+            console.log("API URL:", apiUrl);
+            
             if (res.ok) {
                 if (isLogin) {
                     alert("Logged In Successfully");
-                    // if (data.token) localStorage.setItem("token", data.token);
-                    // localStorage.setItem("userId", data.user.id);
                     navigate('/');
                 } else {
                     alert("Registered Successfully");
