@@ -2162,9 +2162,6 @@
         /* Context parent anchor zone for dropdown placements */
     }
 
-    .users_list {
-        overflow-y: auto;
-    }
 
     .chat_inline_image,
     .chat_inline_video {
@@ -2221,7 +2218,6 @@
         padding: 8px 16px;
         font-size: 13.5px;
     }
-
 
     .contacts_container {
         height: 100vh;

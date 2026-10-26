@@ -11,9 +11,13 @@ export default function ContactsModal({ api_url, onClose, onSelectContact }) {
             setLoading(true);
             try {
                 // Ek aisa backend endpoint jahan se saare app users mil sakein
-                const res = await axios.get(`${api_url}/api/chat/all-users`, {
-                    headers: { Authorization: `Bearer ${token}` }, withCredentials: true
-                });
+                const res = await axios.get(
+                    `${api_url}/api/chat/all-users`,
+                    {
+                        withCredentials: true
+                    }
+                );
+
                 setAllUsers(res.data);
             } catch (err) {
                 console.error("Contacts load karne me dikkat aayi:", err);
