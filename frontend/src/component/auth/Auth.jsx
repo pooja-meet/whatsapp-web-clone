@@ -60,11 +60,6 @@ export default function Auth() {
             });
 
             const data = await res.json();
-
-            console.log("Login status:", res.status);
-            console.log("Login response:", data);
-            console.log("API URL:", apiUrl);
-            
             if (res.ok) {
                 if (isLogin) {
                     alert("Logged In Successfully");
