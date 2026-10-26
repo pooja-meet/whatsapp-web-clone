@@ -12,14 +12,22 @@ const chat = require('./Routes/messageRoutes');
 const User = require('./Model/user');
 
 // Middlewares
-app.use(cors({
-  origin: 'https://livechat13.netlify.app',
-  credentials: true,
-  methods: ["GET", "PUT", "POST", "DELETE"]
-}));
-app.use(express.json());
-app.use(cookieParser())
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://livechat13.netlify.app",
+  process.env.CLIENT_URL
+].filter(Boolean);
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+}));
+
+
+app.use(express.json());
+app.use(cookieParser());
 
 const server = http.createServer(app);
 
@@ -38,7 +46,7 @@ app.get('/', (req, res) => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: 'https://livechat13.netlify.app',
+    origin: allowedOrigins,
     credentials: true,
     methods: ["GET", "POST"],
   },
