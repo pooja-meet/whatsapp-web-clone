@@ -1,6 +1,6 @@
+
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import axios from "axios";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -15,15 +15,19 @@ export default function Protected({ children }) {
       try {
         const res = await fetch(`${apiUrl}/api/auth/me`, {
           method: "GET",
-          credentials: "include"
+          credentials: "include",
         });
+
+        const data = await res.json();
 
         if (cancelled) return;
 
-        // Authentication successful
-        setAuthenticated(res.data.authenticated === true);
+        setAuthenticated(
+          res.ok && data.authenticated === true
+        );
       } catch (error) {
         if (!cancelled) {
+          console.error("Session check failed:", error);
           setAuthenticated(false);
         }
       } finally {
