@@ -13,8 +13,9 @@ export default function Protected({ children }) {
 
     const checkSession = async () => {
       try {
-        const res = await axios.get(`${apiUrl}/api/auth/me`, {
-          withCredentials: true,
+        const res = await fetch(`${apiUrl}/api/auth/me`, {
+          method: "GET",
+          credentials: "include"
         });
 
         if (cancelled) return;
