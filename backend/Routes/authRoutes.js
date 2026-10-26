@@ -97,6 +97,9 @@ router.post('/login', async (req, res) => {
             path: "/",
         });
 
+        console.log("JWT generated:", Boolean(token));
+        console.log("Cookie header:", res.getHeader("Set-Cookie"));
+        
         res.status(200).json({
             success: true,
             msg: "Login successful! 🔓",
