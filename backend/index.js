@@ -13,7 +13,7 @@ const User = require('./Model/user');
 
 // Middlewares
 app.use(cors({
-  origin: ['process.env.CLIENT_URL','https://livechat13.netlify.app'],
+  origin: 'https://livechat13.netlify.app',
   credentials: true,
   methods: ["GET", "PUT", "POST", "DELETE"]
 }));
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: process.env.CLIENT_URL,
+    origin: 'https://livechat13.netlify.app',
     credentials: true,
     methods: ["GET", "POST"],
   },
